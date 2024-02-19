@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import MainCard from './components/MainCard';
 
 function App() {
   return (
-    <main>
+    <main className = "App">
       <MainCard/>
     </main>
    

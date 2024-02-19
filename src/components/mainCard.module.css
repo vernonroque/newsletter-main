@@ -1,0 +1,35 @@
+
+img{
+    width:100%;
+    height:100%;
+}
+ul{
+    list-style-type:none;
+
+}
+.headline{
+    font-weight:bold;
+}
+.imgContainer{
+    outline:2px solid green;
+}
+.mainStuff{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    /* margin: 70px 70px; */
+    background-color:white;
+    padding:30px;
+    /* outline: 2px solid red; */
+}
+.newsSection{
+    padding:10px;
+    line-height:1.8;
+    outline: 2px solid red;
+    margin-right:20px;
+}
+.emailForm{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
