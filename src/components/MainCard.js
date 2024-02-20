@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './mainCard.module.css'
 import signUpImg from '../assets/images/illustration-sign-up-desktop.svg'
+import iconList from '../assets/images/icon-list.svg'
 
 function MainCard() {
   return (
@@ -11,12 +12,15 @@ function MainCard() {
                 <p>
                     Join 60,000+ product managers receiving monthly updates on:
                 </p>
+              
+                
         
-                <ul>
-                    <li>Product discovery and building what matters</li>
-                    <li>Measuring to ensure updates are a success</li>
-                    <li>And much more!</li>
+                <ul className = {styles.list}>
+                    <li><span><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span>Product discovery and building what matters</li>
+                    <li><span><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span>Measuring to ensure updates are a success</li>
+                    <li><span><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span>And much more!</li>
                 </ul>
+            
        
                 <form className ={styles.emailForm}>
                     <label for = "email">Email address</label>
@@ -25,7 +29,7 @@ function MainCard() {
                 </form>
         </section>
         <aside className = {styles.imgContainer}>
-            <img src = {signUpImg} alt = "signup art"/>
+            <img className="imgSignUp" src = {signUpImg} alt = "signup art"/>
         </aside>
     </main>
   )
