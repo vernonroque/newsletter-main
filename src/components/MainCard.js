@@ -5,21 +5,33 @@ import iconList from '../assets/images/icon-list.svg'
 
 function MainCard() {
     const [success,setSuccess] = useState(false);
-    const [email,setEmail] = useState('')
+    const [email,setEmail] = useState('');
+    const [error,setError] = useState(false);
 
     function handleSuccessClick(e){
         e.preventDefault();
-        console.log(email);
-        setSuccess(true);
+        // Regular expression for a simple email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+        if(!email){
+            setError(true);
+        }
+        else if(!emailRegex.test(email)){
+            setError(true)
+        }
+        else
+            setSuccess(true);
+        
     }
     function handleDismissClick(e){
         setSuccess(false);
         setEmail('');
+        setError(false);
 
     }
     function handleChange(e){
-        setEmail(e.target.value)
+        setEmail(e.target.value);
+        setError(false);
     }
   return (
     <main className = {!success ? styles.mainStuff:styles.mainStuffSuccess}>
@@ -32,14 +44,14 @@ function MainCard() {
                     </p>
                 
                     <ul className = {styles.list}>
-                        <li><span><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span>Product discovery and building what matters</li>
-                        <li><span><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span>Measuring to ensure updates are a success</li>
-                        <li><span><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span>And much more!</li>
+                        <li><span className={styles.listItems}><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span><p>Product discovery and building what matters</p></li>
+                        <li><span className={styles.listItems}><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span><p>Measuring to ensure updates are a success</p></li>
+                        <li><span className={styles.listItems}><img className={styles.checkmarks} src ={iconList} alt="checkmark"/></span><p>And much more!</p></li>
                     </ul>
                 
                     <form className ={styles.emailForm}>
-                        <label for = "email">Email address</label>
-                        <input type = "input" name = "email" placeholder = "email@company.com" value={email} onChange={handleChange}/>
+                        <label className = {error ? styles.labelError:null} for = "email">Email address</label>
+                        <input className = {error ? styles.inputError:null} type = "input" name = "email" placeholder = "email@company.com" value={email} onChange={handleChange}/>
                         <button type="submit" onClick={handleSuccessClick}>Subscribe to monthly newsletter</button>
                     </form>
             </section>
@@ -52,7 +64,7 @@ function MainCard() {
                 <img className ={styles.checkmarkSuccess} src = {iconList} alt="checkmark"/>
                 <h1>Thanks for subscribing!</h1>
                 <p>
-                    A confirmation email has been sent to {email}. 
+                    A confirmation email has been sent to <span className={styles.emailSuccessMessage}>{email}. </span> 
                     Please open it and click the button inside to confirm your subscription.
                 </p>
                 <button className ={styles.dismissButton} onClick={handleDismissClick}>Dismiss message</button>
