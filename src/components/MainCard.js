@@ -1,12 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import styles from './mainCard.module.css'
 import signUpImg from '../assets/images/illustration-sign-up-desktop.svg'
+import signUpImgMobile from '../assets/images/illustration-sign-up-mobile.svg'
 import iconList from '../assets/images/icon-list.svg'
 
 function MainCard() {
     const [success,setSuccess] = useState(false);
     const [email,setEmail] = useState('');
     const [error,setError] = useState(false);
+    // const [width,setWidth] = useState(window.innerWidth);
 
     function handleSuccessClick(e){
         e.preventDefault();
@@ -33,6 +35,22 @@ function MainCard() {
         setEmail(e.target.value);
         setError(false);
     }
+    // function handleResize(){
+    //     setWidth(window.innerWidth);
+
+    // }
+    // useEffect(()=>{
+    //     window.addEventListener('resize',handleResize)
+    //     if(width <=380){
+    //         //setMobile(true);
+    //         console.log("Mobile mode")
+    //     }
+
+    //     return ()=>{
+    //         window.addEventListener('resize',handleResize)
+    //     }
+
+    // },[width])
   return (
     <main className = {!success ? styles.mainStuff:styles.mainStuffSuccess}>
         {!success ?
@@ -56,7 +74,7 @@ function MainCard() {
                     </form>
             </section>
             <aside className = {styles.imgContainer}>
-                <img className="imgSignUp" src = {signUpImg} alt = "signup art"/>
+                <img className={styles.imgSignUp} src ={signUpImg} alt = "signup art"/>
             </aside>
         </>: 
         <>
