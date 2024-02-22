@@ -181,7 +181,6 @@ button:hover{
     .successCard{
         padding-top:100px;
         height:100%;
-        outline:2px solid green;
     }
    
     .successCard button{
