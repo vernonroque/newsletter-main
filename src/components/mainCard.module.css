@@ -42,11 +42,14 @@ button{
     border-radius:5px;
     font-size:16px;
     border:none;
+    transition: 0.5s;
 }
 button:hover{
     cursor:pointer;
     background:linear-gradient(45deg,hsl(4, 100%, 67%),rgb(255, 170, 51));
     box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%); /* x-axis,y-axis,blur-effect,spread-radius,color */
+    transition: 0.5s;
+    color:black;
 }
 .inputError{
     border:2px solid red;
