@@ -163,6 +163,7 @@ button:hover{
     width:50px;
     height:50px;
 }
+
 @media only screen and (max-width:570px) and (min-width:381px){
     .mainStuffSuccess{
         width:70%;

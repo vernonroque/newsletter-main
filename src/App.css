@@ -10,3 +10,25 @@
   text-align: center;
   min-height:100vh;
 } */
+.attribution { 
+  
+  font-family:'Roboto',Arial, Helvetica, sans-serif;
+  margin-top:10px;
+  margin-bottom:30px;
+  font-size: 20px; text-align: center; 
+  color: white;
+  font-weight:800;
+}
+.attribution a { 
+  /* color: hsl(228, 45%, 44%);  */
+  color:pink;
+}
+
+@media only screen and (max-width:375px){
+  .attribution{
+    display:none;
+    width:100%;
+    margin-bottom:0;
+  }
+
+}
